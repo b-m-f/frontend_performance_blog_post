@@ -1,5 +1,5 @@
 import React from "react";
-import axios from "axios";
+import api from "../lib/api";
 
 class Clock extends React.Component {
   state = {
@@ -8,8 +8,7 @@ class Clock extends React.Component {
 
   getTime = async () => {
     try {
-      const response = await axios.get("http://localhost:4000");
-      const data = response.data;
+      const data = await api.get("http://localhost:4000");
 
       this.setState({ time: new Date(data.date).toTimeString() });
     } catch (e) {
