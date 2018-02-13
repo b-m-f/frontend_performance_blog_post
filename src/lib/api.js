@@ -8,3 +8,14 @@ export async function get(url) {
     console.log(e);
   }
 }
+
+export async function post(url, data) {
+  try {
+    const post = await axios.post(url, data);
+    return post;
+  } catch (e) {
+    console.error(e);
+  }
+}
+
+export default { get, post };
