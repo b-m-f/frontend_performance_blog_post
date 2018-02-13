@@ -9,7 +9,10 @@ class Home extends Component {
   async componentDidMount() {
     try {
       const timeSinceStart = Date.now() - timer.start;
-      await api.post(config.METRIC_SERVER, `HomeLoadTime:${timeSinceStart}|ms`);
+      await api.post(config.METRIC_SERVER, {
+        component: "Home",
+        time: timeSinceStart
+      });
       console.log(timer);
     } catch (e) {
       console.log(e);
