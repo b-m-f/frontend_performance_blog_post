@@ -29,6 +29,7 @@ server
         <meta charset="utf-8" />
         <title>Welcome to Razzle</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script>window.__timer__ = {start: Date.now()};</script>
         ${
           assets.client.css
             ? `<link rel="stylesheet" href="${assets.client.css}">`
@@ -41,7 +42,6 @@ server
         }
     </head>
     <body>
-        <script>window.__timer__ = {start: Date.now()};</script>
         <div id="root">${markup}</div>
     </body>
 </html>`
