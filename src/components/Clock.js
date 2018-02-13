@@ -1,5 +1,6 @@
 import React from "react";
 import api from "../lib/api";
+import config from "../config/config";
 
 class Clock extends React.Component {
   state = {
@@ -8,7 +9,7 @@ class Clock extends React.Component {
 
   getTime = async () => {
     try {
-      const data = await api.get("http://localhost:4000");
+      const data = await api.get(config.TIME_API);
 
       this.setState({ time: new Date(data.date).toTimeString() });
     } catch (e) {
